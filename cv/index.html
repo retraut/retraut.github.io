@@ -785,12 +785,12 @@
 
         .cta-button.secondary {
             background: transparent;
-            border: 2px solid white;
-            color: white;
+            border: 2px solid var(--primary);
+            color: var(--text);
         }
 
         .cta-button.secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--primary-glow);
         }
 
         /* Hand-drawn annotation */
@@ -931,22 +931,9 @@
                 padding: 30px 20px;
             }
 
-            .theme-toggle {
-                top: 10px;
-                right: 10px;
-                padding: 6px 12px;
-            }
-
-            .theme-toggle-text {
-                display: none;
-            }
-
-            .pdf-download-btn {
-                right: 50px;
-                padding: 6px 12px;
-            }
-
-            .pdf-download-btn span {
+            .theme-toggle,
+            .pdf-download-btn,
+            .pdf-bw-btn {
                 display: none;
             }
 
@@ -997,6 +984,108 @@
                 gap: 30px;
                 width: 100%;
             }
+        }
+
+        /* Print Mode Class for PDF Generation */
+        .print-mode {
+            --primary: #000000 !important;
+            --primary-dark: #000000 !important;
+            --primary-glow: transparent !important;
+            --text: #000000 !important;
+            --text-light: #333333 !important;
+            --text-dim: #555555 !important;
+            --bg: #ffffff !important;
+            --bg-alt: #ffffff !important;
+            --bg-card: #ffffff !important;
+            --border: #000000 !important;
+            --border-glow: transparent !important;
+            --accent: #000000 !important;
+            --accent-cyan: #000000 !important;
+            --accent-orange: #000000 !important;
+            --accent-purple: #000000 !important;
+            --accent-blue: #000000 !important;
+            --accent-pink: #000000 !important;
+            --header-gradient-start: #ffffff !important;
+            --header-gradient-end: #ffffff !important;
+            --grid-color: transparent !important;
+        }
+
+        .print-mode .container {
+            box-shadow: none !important;
+            border: none !important;
+            max-width: 100% !important;
+            margin: 0 !important;
+        }
+
+        .print-mode, .print-mode body {
+            background: white !important;
+            padding-bottom: 0 !important;
+            height: auto !important;
+            min-height: auto !important;
+        }
+
+        .print-mode .main {
+            padding-bottom: 0 !important;
+        }
+
+        .print-mode section:last-of-type {
+            margin-bottom: 0 !important;
+        }
+
+        .print-mode .job, 
+        .print-mode .service-card,
+        .print-mode .skill-tag {
+            border: 1px solid #000 !important;
+            box-shadow: none !important;
+        }
+
+        .print-mode .header {
+            background: white !important;
+            color: black !important;
+            border-bottom: 2px solid black !important;
+            padding: 20px 0 !important;
+        }
+
+        .print-mode .header-info h1::before {
+            color: #000 !important;
+        }
+        
+        .print-mode .contact-item {
+            border: 1px solid #000 !important;
+            background: transparent !important;
+            color: #000 !important;
+        }
+
+        .print-mode .contact-item a {
+            color: #000 !important;
+        }
+
+        .print-mode .timeline::before {
+            display: none !important;
+        }
+
+        .print-mode .job {
+            margin-left: 0 !important;
+            padding-left: 20px !important;
+            border: 1px solid #000 !important;
+            box-shadow: none !important;
+            break-inside: avoid !important;
+            margin-bottom: 25px !important;
+            margin-top: 10px !important;
+            page-break-inside: avoid !important;
+        }
+
+        .print-mode .job::before {
+            display: none !important;
+        }
+
+        .print-mode .job:nth-child(even)::before {
+             display: none !important;
+        }
+
+        .print-mode .job:last-child {
+            margin-bottom: 0 !important;
+            page-break-after: avoid !important;
         }
 
         /* PDF Export specific */
@@ -1171,16 +1260,6 @@
             }
             
             .job:first-child {
-                page-break-before: avoid;
-            }
-
-            /* Last 4 jobs: 2 per page */
-            .job:nth-child(5),
-            .job:nth-child(7) {
-                page-break-before: always;
-            }
-            .job:nth-child(6),
-            .job:nth-child(8) {
                 page-break-before: avoid;
             }
 
@@ -1506,7 +1585,7 @@
                         </div>
                     </div>
 
-                    <div class="job">
+                    <div class="job job-page-break">
                         <div class="job-header">
                             <div>
                                 <div class="job-title">DevOps Engineer</div>
@@ -1530,7 +1609,7 @@
                         </div>
                     </div>
 
-                    <div class="job job-page-break">
+                    <div class="job">
                         <div class="job-header">
                             <div>
                                 <div class="job-title">Duty System Administrator / DevOps Engineer</div>
@@ -1791,20 +1870,19 @@
             if (ctaSection) ctaSection.style.display = 'none';
             if (footer) footer.style.display = 'none';
             
-            // Apply grayscale filter
-            container.style.filter = 'grayscale(100%)';
+            // Apply Print Mode class
+            document.body.classList.add('print-mode');
             
             const opt = {
-                margin: [15, 15, 15, 15],
+                margin: [35, 10, 10, 10],
                 filename: 'Yan_Lytovka_DevOps_CV_BW.pdf',
-                image: { type: 'jpeg', quality: 0.95 },
+                image: { type: 'jpeg', quality: 0.98 },
                 html2canvas: { 
-                    scale: 1.5,
+                    scale: 2,
                     useCORS: true,
                     logging: true,
                     letterRendering: true,
-                    allowTaint: true,
-                    removeContainer: true
+                    allowTaint: true
                 },
                 jsPDF: { 
                     unit: 'mm', 
@@ -1815,13 +1893,13 @@
                 pagebreak: { 
                     mode: ['css', 'legacy'],
                     before: ['.job-page-break', '.skills'],
-                    avoid: ['.job-achievements', '.skill-tags']
+                    avoid: ['.job', '.job-achievements', '.skill-tags']
                 }
             };
 
             html2pdf().set(opt).from(container).save().then(() => {
                 // Restore everything
-                container.style.filter = '';
+                document.body.classList.remove('print-mode');
                 if (themeToggle) themeToggle.style.display = '';
                 if (pdfBwBtn) pdfBwBtn.style.display = '';
                 if (servicesSection) servicesSection.style.display = '';
@@ -1829,7 +1907,7 @@
                 if (footer) footer.style.display = '';
             }).catch(function(err) {
                 console.error('PDF generation error:', err);
-                container.style.filter = '';
+                document.body.classList.remove('print-mode');
                 if (themeToggle) themeToggle.style.display = '';
                 if (pdfBwBtn) pdfBwBtn.style.display = '';
                 if (servicesSection) servicesSection.style.display = '';
