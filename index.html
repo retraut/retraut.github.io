@@ -2,15 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Yan Lytovka- System Engineer & DevOps</title>
+    <title>Yan Lytovka - Senior DevOps Engineer</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Yan Lytovka, System Engineer & DevOps, Linux Administrator">
+    <meta name="description" content="Yan Lytovka, Senior DevOps Engineer, Cloud Infrastructure, AWS, GCP, Azure, Kubernetes">
     <meta name="author" content="Yan Lytovka">    
-    <meta property="og:title" content="Yan Lytovka - Portfolio" />
+    <meta property="og:title" content="Yan Lytovka - Senior DevOps Engineer" />
     <meta property="og:type" content="website"/>
-    <meta property="og:url" content="retraut.win/cv.pdf" />
+    <meta property="og:url" content="retraut.github.io/Yan_Lytovka_DevOps_CV_BW.pdf" />
     <meta property="og:image" content="" />
     <link rel="sitemap" type="application/xml" title="Sitemap" href=""/>
     <link rel="shortcut icon" href="favicon.ico"/>
@@ -37,48 +37,33 @@ jQuery(document).ready(function($) {
             case 'whois':
                 var whois = "Name: \t\t\tYan Lytovka\n" +
                 "Email: \t\t   retraut@gmail.com\n" +
-                "Location: \t\tKyiv\n" +
-                "Profession: \t  System Administrator & DevOps\n" +
-                "Homepage: \t\thttps://retraut.win/plus\n";
+                "Phone: \t\t   +48 574-091-166\n" +
+                "Location: \t\tPoland, Cracow\n" +
+                "Profession: \t  Senior DevOps (Cloud) Engineer\n" +
+                "Telegram: \t\t@retraut\n" +
+                "LinkedIn: \t\thttps://linkedin.com/in/retraut\n";
                 term.echo(whois);
                 break;
             case 'about': 
-                var about = "I work as a system engineer and DevOps. I am specialized in managing my infrastructure like code on git repo. My current interests are automation, python and workflow simplification and optimization";
+                var about = "Senior DevOps Engineer with 11+ years of experience spanning from system administration to leading complex multi-cloud infrastructure projects. Currently at JFrog (post-Qwak acquisition), focusing on security hardening and SSDLC implementation. Additionally providing freelance DevOps consulting for early-stage startups through FastCTO platform since 2022.\n\nProven track record: reduced deployment time from weeks to days, optimized Terraform configurations by 93%, and led successful Kubernetes migrations. Helped 15+ startups rapidly launch to production. Expertise in multi-cloud environments (AWS, GCP, Azure), Infrastructure as Code, and building scalable automation solutions.";
                 term.echo(about);
                 break;
             case 'social':
-                
-
-                
-                    term.echo("G+: https://retraut.win/plus");
-                
-
-                
-                    term.echo("LinkedIn: https://retraut.win/linkedin");
-                
-
-                
-                    term.echo("GitHub: https://retraut.win/github");
-                
+                term.echo("Telegram: https://t.me/retraut");
+                term.echo("LinkedIn: https://linkedin.com/in/retraut");
+                term.echo("GitHub: https://github.com/retraut");
+                term.echo("Email: retraut@gmail.com");
                 break;
                 
             case 'skills':
-                
-                    var stars_length = Math.round(95 / 20);
-                    var stars_filled = Array(stars_length + 1).join("&#9733;")
-                    var stars_blank= Array(6 - stars_length).join("&#9734;")
-                    term.echo("Linux --> " + stars_filled + stars_blank);
-                
-                    var stars_length = Math.round(90 / 20);
-                    var stars_filled = Array(stars_length + 1).join("&#9733;")
-                    var stars_blank= Array(6 - stars_length).join("&#9734;")
-                    term.echo("Automation --> " + stars_filled + stars_blank);
-                
-                    var stars_length = Math.round(60 / 20);
-                    var stars_filled = Array(stars_length + 1).join("&#9733;")
-                    var stars_blank= Array(6 - stars_length).join("&#9734;")
-                    term.echo("Python --> " + stars_filled + stars_blank);
-                
+                term.echo("Cloud Platforms: AWS, GCP, Azure");
+                term.echo("Kubernetes: EKS, GKE, AKS");
+                term.echo("IaC: Terraform, Helm, ArgoCD");
+                term.echo("CI/CD: GitHub Actions, Jenkins/Groovy");
+                term.echo("Languages: Python, Go, Bash, Java");
+                term.echo("Monitoring: VictoriaMetrics, Prometheus, Grafana");
+                term.echo("Security: SSDLC, SOPS, Vault, Secret Manager");
+                term.echo("Other: Docker/Podman, Ansible, Linux, Consul");
                 break;
             
             case 'languages':
@@ -89,25 +74,16 @@ jQuery(document).ready(function($) {
                 
                 break;
             case 'tools':
-                
-                    term.echo("&#128295; vim");
-                
-                    term.echo("&#128295; tmux");
-                
-                    term.echo("&#128295; screen");
-                
-                    term.echo("&#128295; git");
-                
-                    term.echo("&#128295; ansible");
-                
-                    term.echo("&#128295; nginx");
-                
-                    term.echo("&#128295; zsh");
-                
-                    term.echo("&#128295; python");
-                
-                    term.echo("&#128295; many more");
-                
+                term.echo("&#128295; Terraform");
+                term.echo("&#128295; Kubernetes/Helm");
+                term.echo("&#128295; ArgoCD");
+                term.echo("&#128295; GitHub Actions");
+                term.echo("&#128295; Docker/Podman");
+                term.echo("&#128295; Ansible");
+                term.echo("&#128295; VictoriaMetrics/Prometheus");
+                term.echo("&#128295; Grafana");
+                term.echo("&#128295; Git/GitHub");
+                term.echo("&#128295; Python/Go/Bash");
                 break;
 
             case 'secret':
@@ -150,10 +126,12 @@ jQuery(document).ready(function($) {
     }, {
         prompt: '~ > ',
         greetings: "Welcome to the command line CV of Yan Lytovka" +
-        "\n\n" +
-        "If you would like the more 'normal'"+ 
         "\n" +
-        "version head over to http://retraut.win/cv.pdf" +
+        "Senior DevOps Engineer | 11+ years experience" +
+        "\n\n" +
+        "If you would like the more 'normal' version head over to:" + 
+        "\n" +
+        "https://retraut.github.io/cv" +
         "\n\n" +
         "Type 'help' to get a list of commands",
         onBlur: function() {
